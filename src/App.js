@@ -45,8 +45,8 @@ const App = () => {
     certificate_id: certificateId,
   };
 
-  useEffect(()=>{
-      if (!isCourseCompleted || !user || !courseId || !completionDate) return;
+  useEffect(() => {
+    if (!isCourseCompleted || !user || !courseId || !completionDate) return;
 
     const saveCertificateToUser = async ({ userId, certificateId, courseName, date }) => {
       try {
@@ -56,7 +56,7 @@ const App = () => {
           courseName,
           date,
         });
-    
+
         console.log("Certificate saved:", response.data);
       } catch (error) {
         console.error("Error saving certificate:", error);
@@ -71,13 +71,14 @@ const App = () => {
         date: completionDate,
       });
     }
-  },[isCourseCompleted, user, certificateId, courseName, completionDate]);
+  }, [isCourseCompleted, user, certificateId, courseName, completionDate]);
 
   useEffect(() => {
     if (!isCourseCompleted) return;
 
     WebViewer({
       path: '/webviewer/lib',
+      licenseKey: '1744252485913:613505f803000000005f497107f39984149494d617bf1c53efc761b9a1',
       disabledElements: [
         'toolbarGroup-View',
         'toolbarGroup-Annotate',

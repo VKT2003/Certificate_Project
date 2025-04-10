@@ -39,7 +39,7 @@ const App = () => {
   const certificateId = generateCertificateId(user?._id, courseId, completionDate);
 
   const jsonData = {
-    name: user?.name || 'Student',
+    name: user?.firstName + " " +  user?.lastName || 'Student',
     date: formattedDate,
     course: courseName,
     certificate_id: certificateId,
